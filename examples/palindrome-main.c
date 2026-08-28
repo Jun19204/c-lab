@@ -1,5 +1,4 @@
 // 회문 검사 프로그램
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #define MAX_SIZE 100

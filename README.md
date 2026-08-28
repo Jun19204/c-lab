@@ -1,4 +1,4 @@
-# C Semi-Monorepo Template
+# C 학습용 저장소
 
 C와 Modern CMake를 기반으로 여러 C 학습 프로젝트, 실험 코드, 재사용 가능한 라이브러리 및 테스트를 하나의 Repository에서 관리하기 위한 저장소입니다.
 
