@@ -3,17 +3,14 @@
 # ============================================================
 
 # Add example executables here.
-#
-# Example:
-#
-# add_executable(
-#   example_app
-#   example-main.cc
-# )
-#
-# target_link_libraries(
-#   example_app
-#   PRIVATE
-#   project_warnings
-#   project_sanitizers
-# )
+
+add_executable(
+  palindrome_app
+  palindrome-main.c
+)
+target_link_libraries(
+  palindrome_app
+  PRIVATE
+  project_warnings
+  project_sanitizers
+)

@@ -1,6 +1,7 @@
-// È¸¹® °Ë»ç ÇÁ·Î±×·¥
+// íšŒë¬¸ ê²€ì‚¬ í”„ë¡œê·¸ë¨
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #define MAX_SIZE 100
 
 typedef char element;
@@ -9,70 +10,70 @@ typedef struct {
 	int top;
 }StackType;
 
-// ½ºÅÃ ÃÊ±âÈ­
+// ìŠ¤íƒ ì´ˆê¸°í™”
 void init_stack(StackType* stack) {
 	stack->top = -1;
 	return;
 }
 
-// ½ºÅÃÀÌ °¡µæ Ã¡´ÂÁö °Ë»ç
+// ìŠ¤íƒì´ ê°€ë“ ì°¼ëŠ”ì§€ ê²€ì‚¬
 int is_full(StackType* stack) {
 	if (stack->top >= (MAX_SIZE - 1)) return 1;
 	else return 0;
 }
 
-// ½ºÅÃÀÌ ºñ¾ú´ÂÁö °Ë»ç
+// ìŠ¤íƒì´ ë¹„ì—ˆëŠ”ì§€ ê²€ì‚¬
 int is_emty(StackType* stack) {
 	if (stack->top <= -1)return 1;
 	else return 0;
 }
 
-// ½ºÅÃ¿¡ ¿ä¼Ò¸¦ Ãß°¡ÇÏ´Â ÇÔ¼ö
+// ìŠ¤íƒì— ìš”ì†Œë¥¼ ì¶”ê°€í•˜ëŠ” í•¨ìˆ˜
 void push(StackType* stack, element ch) {
-	if (is_full(stack)) printf("½ºÅÃÀÌ Æ÷È­ »óÅÂÀÔ´Ï´Ù\n");
+	if (is_full(stack)) printf("ìŠ¤íƒì´ í¬í™” ìƒíƒœì…ë‹ˆë‹¤\n");
 	stack->str[++(stack->top)] = ch;
 	return;
 }
 
-// ½ºÅÃÀÇ ¸¶Áö¸· ¿ä¼Ò¸¦ ¹İÈ¯ÇÏ°í »èÁ¦ÇÏ´Â ÇÔ¼ö
+// ìŠ¤íƒì˜ ë§ˆì§€ë§‰ ìš”ì†Œë¥¼ ë°˜í™˜í•˜ê³  ì‚­ì œí•˜ëŠ” í•¨ìˆ˜
 element pop(StackType* stack){
 	if (is_emty(stack)) exit(1);
 	else return stack->str[(stack->top)--];
 }
 
-// ½ºÅÃÀÇ ¸¶Áö¸· ¿ä¼Ò¸¦ ¹İÈ¯¸¸ ÇÏ´Â ÇÔ¼ö
+// ìŠ¤íƒì˜ ë§ˆì§€ë§‰ ìš”ì†Œë¥¼ ë°˜í™˜ë§Œ í•˜ëŠ” í•¨ìˆ˜
 element peek(StackType* stack) {
 	if (is_emty(stack)) exit(1);
 	else return stack->str[(stack->top)];
 }
 
-// ¼Ò¹®ÀÚ·Î º¯È¯ÇÏ´Â ÇÔ¼ö
+// ì†Œë¬¸ìë¡œ ë³€í™˜í•˜ëŠ” í•¨ìˆ˜
 void to_lower(char* str) {
 	int len = strlen(str);
 	for (int i = 0; i < len; i++) { 
-		if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32; // ´ë¹®ÀÚÀÎ°æ¿ì ¼Ò¹®ÀÚ·Î º¯È¯
+		if (str[i] >= 'A' && str[i] <= 'Z') str[i] += 32; // ëŒ€ë¬¸ìì¸ê²½ìš° ì†Œë¬¸ìë¡œ ë³€í™˜
 		else continue;
 	}
 	return;
 }
 
-// È¸¹® È®ÀÎ ÇÔ¼ö
+// íšŒë¬¸ í™•ì¸ í•¨ìˆ˜
 int is_palindorme(char* str) {
-	StackType s; // ½ºÅÃ »ı¼º
-	init_stack(&s); // ½ºÅÃ ÃÊ±âÈ­
+	StackType s; // ìŠ¤íƒ ìƒì„±
+	init_stack(&s); // ìŠ¤íƒ ì´ˆê¸°í™”
 
-	to_lower(str); // ¹®ÀÚ¿­ÀÇ ¹®ÀÚ¸¦ ÀüºÎ ¼Ò¹®ÀÚ·Î º¯È¯
+	to_lower(str); // ë¬¸ìì—´ì˜ ë¬¸ìë¥¼ ì „ë¶€ ì†Œë¬¸ìë¡œ ë³€í™˜
 
-	int len = strlen(str); // ¹®ÀÚ¿­ÀÇ ±æÀÌ
+	int len = strlen(str); // ë¬¸ìì—´ì˜ ê¸¸ì´
 
-	// ¹®ÀÚ¿­ÀÇ ¾ËÆÄºª¸¸ ½ºÅÃ¿¡ ³Ö±â
+	// ë¬¸ìì—´ì˜ ì•ŒíŒŒë²³ë§Œ ìŠ¤íƒì— ë„£ê¸°
 	for (int i = 0; i < len; i++) {
 		if (str[i] >= 'a' && str[i] <= 'z') push(&s, str[i]);
 	}
 
-	// È¸¹® °Ë»ç
+	// íšŒë¬¸ ê²€ì‚¬
 	for (int j = 0; j < len; j++) {
-		if (str[j] >= 'a' && str[j] <= 'z') { // ¿ø¹®ÀÇ ¹®ÀÚ°¡ ¾ËÆÄºªÀÌ¸é
+		if (str[j] >= 'a' && str[j] <= 'z') { // ì›ë¬¸ì˜ ë¬¸ìê°€ ì•ŒíŒŒë²³ì´ë©´
 			char open_ch = pop(&s);
 			if (open_ch != str[j]) return 0;
 		}
@@ -80,13 +81,13 @@ int is_palindorme(char* str) {
 	return 1;
 }
 
-// ¸ŞÀÎÇÔ¼ö : 
+// ë©”ì¸í•¨ìˆ˜ : 
 int main(void) {
-	printf("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ½Ã¿À:");
+	printf("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì‹œì˜¤:");
 	char str[MAX_SIZE];
 	scanf("%s", str);
-	if(is_palindorme(str)) printf("È¸¹®ÀÌ ¸Â½À´Ï´Ù.\n"); // È¸¹® °Ë»ç ÇÔ¼ö È£Ãâ
-	else printf("È¸¹®ÀÌ ¾Æ´Õ´Ï´Ù.\n");
+	if(is_palindorme(str)) printf("íšŒë¬¸ì´ ë§ìŠµë‹ˆë‹¤.\n"); // íšŒë¬¸ ê²€ì‚¬ í•¨ìˆ˜ í˜¸ì¶œ
+	else printf("íšŒë¬¸ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 
 	return 0;
 }
