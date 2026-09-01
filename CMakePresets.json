@@ -1,13 +1,12 @@
 {
   "version": 6,
 
-
   "configurePresets": [
     {
       "name": "base",
-      "hidden": true, 
-      "generator": "Unix Makefiles",
-      "binaryDir": "${sourceDir}/build-${presetName}",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -29,7 +28,6 @@
     }
   ],
 
-
   "buildPresets": [
     {
       "name": "asan",
@@ -40,7 +38,6 @@
       "configurePreset": "valgrind"
     }
   ],
-
 
   "testPresets": [
     {
