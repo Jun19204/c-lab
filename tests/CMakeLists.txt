@@ -1,5 +1,3 @@
-include(GoogleTest)
-
 # Add test targets here.
 #
 # Example:
@@ -12,9 +10,6 @@ include(GoogleTest)
 # target_link_libraries(
 #   example_test
 #   PRIVATE
-#   GTest::gtest_main
 #   project_warnings
 #   project_sanitizers
 # )
-#
-# gtest_discover_tests(example_test)
