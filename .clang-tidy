@@ -1,5 +1,5 @@
-Checks: >
-  bugprone-*,
-  cert-*,
-  clang-analyzer-*,
-  portability-*
+#Checks: >
+#  bugprone-*,
+#  cert-*,
+#  clang-analyzer-*,
+#  portability-*

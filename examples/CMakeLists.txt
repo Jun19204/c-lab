@@ -14,3 +14,14 @@ target_link_libraries(
   project_warnings
   project_sanitizers
 )
+
+add_executable(
+  iostream_app
+  iostream.c
+)
+target_link_libraries(
+  iostream_app
+  PRIVATE
+  project_warnings
+  project_sanitizers
+)
