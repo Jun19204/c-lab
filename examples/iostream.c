@@ -29,6 +29,7 @@ int main(void) {
   // 3. 숫자 입력
   long num;
   char* endptr;
+
   errno = 0;
   printf("정수 입력: ");
   if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
