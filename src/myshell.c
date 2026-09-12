@@ -9,10 +9,13 @@ int main(int args, char *argv[]) {
   char buf[BUF_SIZE];
 
   // Prompt
-  printf("$");
+  printf("$ ");
 
   // Get input from keyboard
-  fgets(buf, sizeof(buf), stdin);
+  if (fgets(buf, sizeof(buf), stdin) == NULL) {
+    fprintf(stderr, "shell is terminated...\n");
+    return EXIT_FAILURE;
+  }
 
   // Run the command
   system(buf);
