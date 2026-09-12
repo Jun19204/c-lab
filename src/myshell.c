@@ -9,6 +9,9 @@ int main(int args, char *argv[]) {
   char buf[BUF_SIZE];
 
   // Prompt
+  printf("$");
+
+  // Get input from keyboard
   fgets(buf, sizeof(buf), stdin);
 
   // Run the command
