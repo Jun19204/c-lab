@@ -1,35 +1,66 @@
 # ============================================================
 # Core Libraries
 # ============================================================
+#
+# add_library(MyLibrary1 STATIC my_library1.c)
+# add_library(MyLibrary2 STATIC my_library2.c)
 
-# Add reusable libraries here.
+# ============================================================
+# Header-only Libraries
+# ============================================================
 #
-# Example:
-#
-# add_library(
-#   MyLibrary
-#   STATIC
-#   my_library.c
-# )
+# add_library(MyHeaderOnly_headers INTERFACE)
 # target_include_directories(
-#   MyLibrary
-#   PUBLIC
-#   "${PROJECT_SOURCE_DIR}/include"
+#   MyHeaderOnly_headers
+#   INTERFACE
+#     "${PROJECT_SOURCE_DIR}/include"
 # )
-# target_link_libraries(
-#   MyLibrary
-#   PRIVATE
-#   project_warnings
-#   project_sanitizers
+# target_compile_features(
+#   MyHeaderOnly_headers
+#   INTERFACE
+#     c_std_17
 # )
 
-add_executable(
-  MyShell_app
-  myshell.c
-)
+# ============================================================
+# Common Static Library Settings
+# ============================================================
+#
+# set(
+#   ALL_LIBS
+#     MyLibrary1_lib
+#     MyLibrary2
+# )
+#
+# foreach(lib IN LISTS ALL_LIBS)
+#   target_include_directories(
+#     ${lib}
+#     PUBLIC
+#       "${PROJECT_SOURCE_DIR}/include"
+#   )
+#   target_compile_features(
+#     ${lib}
+#     PUBLIC
+#       c_std_17
+#   )
+#   target_link_libraries(
+#     ${lib}
+#     PRIVATE
+#       project_warnings
+#       project_sanitizers
+#   )
+# endforeach()
+
+
+
+# ==========================================================
+# Add Executable
+# ==========================================================
+
+add_executable(MyShell_app myshell.c)
 target_link_libraries(
   MyShell_app
   PRIVATE
-  project_warnings
-  project_sanitizers
+    project_warnings
+    project_sanitizers
 )
+
