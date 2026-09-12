@@ -2,8 +2,8 @@
 # Core Libraries
 # ============================================================
 #
-# add_library(MyLibrary1 STATIC my_library1.c)
-# add_library(MyLibrary2 STATIC my_library2.c)
+# add_library(MyLibrary1_lib STATIC my_library1.c)
+# add_library(MyLibrary2_lib STATIC my_library2.c)
 
 # ============================================================
 # Header-only Libraries
@@ -28,7 +28,7 @@
 # set(
 #   ALL_LIBS
 #     MyLibrary1_lib
-#     MyLibrary2
+#     MyLibrary2_lib
 # )
 #
 # foreach(lib IN LISTS ALL_LIBS)
